@@ -16,24 +16,11 @@ after_success:
   - docker build -t sri554278/multi-docker-server ./server
   - docker build -t sri554278/multi-docker-worker ./worker
   # Login to DockerHub
-  - docker login -u $DOCKER_HUB_USERID -p $DOCKER_HUB_PWD -e $DOCKER_HUB_EMAIL
-  # - echo "DOCKER_HUB_PWD" | docker login -u $DOCKER_HUB_USERID --password-stdin
+  #- docker login -u $DOCKER_HUB_USERID -p $DOCKER_HUB_PWD -e $DOCKER_HUB_EMAIL
+  - echo "DOCKER_HUB_PWD" | docker login -u $DOCKER_HUB_USERID --password-stdin
   # Push prod images to Docker HUB
   - docker push $DOCKER_HUB_USERID/multi-docker-client
   - docker push $DOCKER_HUB_USERID/multi-docker-nginx
   - docker push $DOCKER_HUB_USERID/multi-docker-server
   - docker push $DOCKER_HUB_USERID/multi-docker-worker
-  
-  
-  
-deploy:
-  provider: elasticbeanstack
-  region: "us-east-1"
-  app: "multi-docker"
-  env: "DockerReactGit-env"
-  bucket_name: "elasticbeanstalk-us-east-1-934201206655"
-  bucket_path: "multi-docker"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY    
+    

@@ -1,6 +1,6 @@
-docker build -t sri554278/multi-docker-client:latest -t sri554278/multi-docker-client:$SHA -f ./client/Dockerfile ./client
-docker build -t sri554278/multi-docker-server:latest -t sri554278/multi-docker-server:$SHA -f ./server/Dockerfile ./server
-docker build -t sri554278/multi-docker-worker:latest -t sri554278/multi-docker-worker:$SHA -f ./worker/Dockerfile ./worker
+docker build -t sri554278/multi-docker-client:latest -t sri554278/multi-docker-client:$SHA -f ./client/Dockerfile ./client	
+docker build -t sri554278/multi-docker-server:latest -t sri554278/multi-docker-server:$SHA -f ./server/Dockerfile ./server	
+docker build -t sri554278/multi-docker-worker:latest -t sri554278/multi-docker-worker:$SHA -f ./worker/Dockerfile ./worker	
 
 docker push sri554278/multi-docker-client:latest
 docker push sri554278/multi-docker-client:$SHA
